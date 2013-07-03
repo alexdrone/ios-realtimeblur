@@ -1,7 +1,7 @@
 ios-realtimeblur
 ================
 
-Real-time blur view, like in iOS 7. (on iOS5,6 and 7)
+Real-time blur view, like in iOS 7. (deployable on iOS5, 6 and 7)
 
 
 
