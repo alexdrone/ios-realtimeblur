@@ -12,6 +12,19 @@ Usage
 --------------------
 
 Instantiate it and use it as any other view :) 
+
+	//Creates a live blur view
+	DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(60, 110, 200, 200)];
+	[self.view addSubview:blurView];
+	
+
+You can add all the subviews you want to it...
+
+	UIImageView *speakerImage = [[UIImageView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
+	speakerImage.image = [UIImage imageNamed:@"speaker"];
+	[blurView addSubview:speakerImage];
+
+
 If you want to have a static rendering (useful if your view is presented modally) just set
 
 	blurView.renderStatic = YES;
