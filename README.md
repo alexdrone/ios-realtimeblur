@@ -3,7 +3,7 @@ ios-realtimeblur
 
 Real-time blur view, like in iOS 7. (on iOS5,6 and 7)
 
-![alt text]( "Screenshot")
+![alt text](https://github.com/alexdrone/ios-realtimeblur/blob/master/shot.png "Screenshot")
 
 Usage
 --------------------
