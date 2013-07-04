@@ -126,7 +126,6 @@
     visibleRect.origin.x += self.frame.origin.x;
         
     //hide all the blurred views from the superview before taking a screenshot
-    //hide all the blurred views from the superview before taking a screenshot
     [self toggleBlurredSubviewsInView:superview hidden:YES];
     
     //Render the layer in the image context
