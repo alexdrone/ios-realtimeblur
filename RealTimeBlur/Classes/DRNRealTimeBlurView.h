@@ -9,19 +9,19 @@
 #import <UIKit/UIKit.h>
 
 //adjust jpeg quality (lower = higher perf)
-#define kDRNRealTimeBlurViewScreenshotCompression 0.01
+static const CGFloat kDRNRealTimeBlurViewScreenshotCompression = 0.01;
 
 //the blur radius
-#define kDRNRealTimeBlurViewBlurRadius 1
+static const CGFloat kDRNRealTimeBlurViewBlurRadius = 1.f;
 
 //the default corner radius for all the DRNRealTimeBlurViews
-#define kDRNRealTimeBlurViewDefaultCornerRadius 20
+static const CGFloat kDRNRealTimeBlurViewDefaultCornerRadius = 20.f;
 
 //the view is rendered every kDRNRealTimeBlurViewRenderPeriod seconds
 //tweak this value to have a smoother or a more perfomant rendering
-#define kDRNRealTimeBlurViewRenderPeriod 0.01
+static const CGFloat kDRNRealTimeBlurViewRenderPeriod = 0.1f;
 
-#define kDNRRealTimeBlurTintColorAlpha 0.1
+static const CGFloat kDNRRealTimeBlurTintColorAlpha = 0.1f;
 
 @interface DRNRealTimeBlurView : UIView
 
