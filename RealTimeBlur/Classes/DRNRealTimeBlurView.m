@@ -63,6 +63,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[DRNRealTimeBlurViewManager sharedManager] deregisterView:self];
+}
+
 #pragma mark - Properties
 
 /* When renderStatic is YES, the view is not rendered every kDRNRealTimeBlurViewRenderPeriod seconds.
@@ -79,6 +84,8 @@
         [[DRNRealTimeBlurViewManager sharedManager] registerView:self];
 }
 
+/* Set the tint color of the view. (default = [UIColor clearColor])
+ * TODO: Use iOS7 tintColor */
 - (void)setTint:(UIColor*)tint
 {
     _tint = tint;
@@ -88,7 +95,9 @@
 
 #pragma mark - Rendering
 
-
+/* When the view is pushed to the superview, the layer 
+ * is rendered for the first time. It will then be refreshed 
+ * only if renderStatic = YES */
 - (void)willMoveToSuperview:(UIView*)superview
 {
     [self renderLayerWithView:superview];
@@ -109,13 +118,6 @@
         //makes sure that the view is deregistered from the manager
         [[DRNRealTimeBlurViewManager sharedManager] deregisterView:self];
     }
-}
-
-
-
-- (void)dealloc
-{
-    [[DRNRealTimeBlurViewManager sharedManager] deregisterView:self];
 }
 
 - (void)renderLayerWithView:(UIView*)superview
@@ -159,10 +161,10 @@
 /* Hide or show all the DRNRealTimeBlurView subviews from the target view */
 - (void)toggleBlurredSubviewsInView:(UIView*)view hidden:(BOOL)hidden
 {
+    //hides all the DRNRealTimeBlurView from the superview
     for (UIView *subview in view.subviews)
-        if ([subview isKindOfClass:DRNRealTimeBlurView.class]) {
+        if ([subview isKindOfClass:DRNRealTimeBlurView.class])
             subview.alpha = hidden ? 0.f : 1.f;
-        }
 }
 
 @end
@@ -191,9 +193,9 @@
 /* Constructor */
 - (id)init
 {
-    if (self = [super init]) {
+    if (self = [super init])
         self.views = [@[] mutableCopy];
-    }
+    
     return self;
 }
 
