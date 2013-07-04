@@ -5,6 +5,8 @@
 //  Created by Alex Usbergo on 7/3/13.
 //  Copyright (c) 2013 Alex Usbergo. All rights reserved.
 //
+// algorithm from: http://indieambitions.com/idevblogaday/perform-blur-vimage-accelerate-framework-tutorial/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+IndieAmbitions+%28Indie+Ambitions%29
+
 
 #import <UIKit/UIKit.h>
 
