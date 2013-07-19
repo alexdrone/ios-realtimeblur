@@ -13,8 +13,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "167"
          endingLineNumber = "167"
-         landmarkName = "@implementation DRNRealTimeBlurView"
-         landmarkType = "3">
+         landmarkName = "-toggleBlurredSubviewsInView:hidden:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -25,7 +25,9 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "169"
-         endingLineNumber = "169">
+         endingLineNumber = "169"
+         landmarkName = "@implementation DRNRealTimeBlurView"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -37,8 +39,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "168"
          endingLineNumber = "168"
-         landmarkName = "@implementation DRNRealTimeBlurView"
-         landmarkType = "3">
+         landmarkName = "-toggleBlurredSubviewsInView:hidden:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
