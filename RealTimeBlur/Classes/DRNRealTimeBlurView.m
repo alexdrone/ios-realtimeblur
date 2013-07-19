@@ -128,7 +128,8 @@
     visibleRect.origin.x += self.frame.origin.x;
         
     //hide all the blurred views from the superview before taking a screenshot
-    [self toggleBlurredSubviewsInView:superview hidden:YES];
+    CGFloat alpha = self.alpha;    
+    [self toggleBlurViewsInView:superview hidden:YES alpha:alpha];
     
     //Render the layer in the image context
     UIGraphicsBeginImageContextWithOptions(visibleRect.size, NO, 1.0);
@@ -138,7 +139,7 @@
     [layer renderInContext:context];
     
     //show all the blurred views from the superview before taking a screenshot
-    [self toggleBlurredSubviewsInView:superview hidden:NO];
+    [self toggleBlurViewsInView:superview hidden:NO alpha:alpha];
     
     __block UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -159,12 +160,11 @@
 }
 
 /* Hide or show all the DRNRealTimeBlurView subviews from the target view */
-- (void)toggleBlurredSubviewsInView:(UIView*)view hidden:(BOOL)hidden
+- (void)toggleBlurViewsInView:(UIView*)view hidden:(BOOL)hidden alpha:(CGFloat)originalAlpha
 {
-    //hides all the DRNRealTimeBlurView from the superview
     for (UIView *subview in view.subviews)
         if ([subview isKindOfClass:DRNRealTimeBlurView.class])
-            subview.alpha = hidden ? 0.f : 1.f;
+            subview.alpha = hidden ? 0.f : originalAlpha;
 }
 
 @end

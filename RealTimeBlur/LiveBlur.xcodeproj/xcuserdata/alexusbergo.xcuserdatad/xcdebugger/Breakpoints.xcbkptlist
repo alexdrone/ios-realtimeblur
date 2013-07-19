@@ -8,39 +8,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/DRNRealTimeBlurView.m"
-         timestampString = "394624183.578227"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "167"
-         endingLineNumber = "167"
-         landmarkName = "-toggleBlurredSubviewsInView:hidden:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Classes/DRNRealTimeBlurView.m"
-         timestampString = "394624183.578227"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "169"
-         endingLineNumber = "169"
-         landmarkName = "@implementation DRNRealTimeBlurView"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Classes/DRNRealTimeBlurView.m"
-         timestampString = "394624183.578227"
+         timestampString = "395913767.487005"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "168"
          endingLineNumber = "168"
-         landmarkName = "-toggleBlurredSubviewsInView:hidden:"
-         landmarkType = "5">
+         landmarkName = "@implementation DRNRealTimeBlurView"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

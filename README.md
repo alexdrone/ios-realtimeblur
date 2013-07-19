@@ -29,23 +29,7 @@ If you want to have a static rendering (useful if your view is presented modally
 
 	blurView.renderStatic = YES;
 
-
-Rember to set renderStatic to YES everytime you want to animate the view (you can always set it to NO in the completion block)
-
-
-	blurView.renderStatic = YES;
-	blurView.alpha = 0.f;
-
-	//show aniamtion
-	[UIView animateWithDuration:1 animations:^{
-	    blurView.alpha = 1.f;
-	} completion:^(BOOL finished) {
-	    blurView.renderStatic = NO;
-	}];
-
-
 You can set the tint color of the view via the tint property (still TODO: use iOS7 tintColor ;)) - The default one is clearColor
-
 
 In DRNRealTimeBlurView.h there are some constants that you can tweak to improve the smoothness/performances of the view or to define some default values.
 

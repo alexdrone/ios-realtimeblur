@@ -59,18 +59,12 @@
 
 - (void)showHideLoop
 {    
-    //When renderStatic is YES, the view is not rendered every kDRNRealTimeBlurViewRenderPeriod seconds.
-    //Useful when the view is presented modally and there's no interaction in the superview.
-    //IMPORTANT: Always set the view as static before animating the view (you
-    //can always set it back to non-static by calling setRenderStatic:NO in the completion block)
-    self.blurView.renderStatic = YES;
     self.blurView.alpha = 0.f;
     
     //show aniamtion
     [UIView animateWithDuration:1 animations:^{
         self.blurView.alpha = 1.f;
     } completion:^(BOOL finished) {
-        self.blurView.renderStatic = NO;
         
         //After 10seconds it hides the view
         double delayInSeconds = 10.0;
@@ -78,7 +72,6 @@
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
             //hide animation
-            self.blurView.renderStatic = YES;
             [UIView animateWithDuration:1 animations:^{
                 self.blurView.alpha = 0.f;
             } completion:^(BOOL finished) {
