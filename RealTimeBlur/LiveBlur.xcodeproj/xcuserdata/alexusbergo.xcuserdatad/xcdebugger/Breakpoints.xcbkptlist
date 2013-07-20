@@ -13,8 +13,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "168"
          endingLineNumber = "168"
-         landmarkName = "@implementation DRNRealTimeBlurView"
-         landmarkType = "3">
+         landmarkName = "-toggleBlurViewsInView:hidden:alpha:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

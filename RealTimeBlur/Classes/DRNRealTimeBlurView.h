@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//adjust jpeg quality (lower = higher perf)
 static const CGFloat kDRNRealTimeBlurViewScreenshotCompression = 0.01;
 
 //the blur radius

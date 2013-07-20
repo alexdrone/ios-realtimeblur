@@ -33,8 +33,6 @@ You can set the tint color of the view via the tint property (still TODO: use iO
 
 In DRNRealTimeBlurView.h there are some constants that you can tweak to improve the smoothness/performances of the view or to define some default values.
 
-	//adjust jpeg quality (lower = higher perf)
-	static const CGFloat kDRNRealTimeBlurViewScreenshotCompression = 0.01;
 
 	//the blur radius
 	static const CGFloat kDRNRealTimeBlurViewBlurRadius = 1.f;
@@ -44,7 +42,7 @@ In DRNRealTimeBlurView.h there are some constants that you can tweak to improve 
 
 	//the view is rendered every kDRNRealTimeBlurViewRenderPeriod seconds
 	//tweak this value to have a smoother or a more perfomant rendering
-	static const CGFloat kDRNRealTimeBlurViewRenderPeriod = 0.1f;
+	static const CGFloat kDRNRealTimeBlurViewRenderFps = 30.f;
 
 	//the alpha component of the tint color
 	static const CGFloat kDNRRealTimeBlurTintColorAlpha = 0.1f;
