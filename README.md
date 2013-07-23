@@ -60,3 +60,8 @@ Credits
 
 If you use this component in your app, please add some credits :)
 
+License
+-------
+
+MIT
+
