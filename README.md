@@ -59,4 +59,5 @@ Credits
 --------------------
 
 If you use this component in your app, please add some credits :)
-
+The box blur algorithm is from this beautiful blog post:
+http://indieambitions.com/idevblogaday/perform-blur-vimage-accelerate-framework-tutorial
