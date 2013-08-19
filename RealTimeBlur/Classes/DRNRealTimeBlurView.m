@@ -94,7 +94,6 @@
     [[DRNRealTimeBlurViewManager sharedManager] deregisterView:self];
 }
 
-
 #pragma mark - Properties
 
 /* When renderStatic is YES, the view is not rendered every kDRNRealTimeBlurViewRenderPeriod seconds.
