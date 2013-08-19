@@ -64,22 +64,29 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
-        // Initialization code
-        self.tintLayer = [[CALayer alloc] init];
-        self.tintLayer.frame = self.bounds;
-        self.tintLayer.opacity = kDNRRealTimeBlurTintColorAlpha;
-        
-        //default tint
-        //TODO: Use tintColor on iOS 7
-        self.tint = [UIColor clearColor];
-        
-        [self.layer addSublayer:self.tintLayer];
-        
-        self.clipsToBounds = YES;
-        self.layer.cornerRadius = kDRNRealTimeBlurViewDefaultCornerRadius;
+        [self setup];
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    [self setup];
+}
+
+- (void)setup {
+    // Initialization code
+    self.tintLayer = [[CALayer alloc] init];
+    self.tintLayer.frame = self.bounds;
+    self.tintLayer.opacity = kDNRRealTimeBlurTintColorAlpha;
+    
+    //default tint
+    //TODO: Use tintColor on iOS 7
+    self.tint = [UIColor clearColor];
+    
+    [self.layer addSublayer:self.tintLayer];
+    
+    self.clipsToBounds = YES;
+    self.layer.cornerRadius = kDRNRealTimeBlurViewDefaultCornerRadius;
 }
 
 - (void)dealloc
