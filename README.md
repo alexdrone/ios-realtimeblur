@@ -52,7 +52,6 @@ TODO
 --------------------
 
 * Improve it ;)
-* Cocoapod
 
 
 Credits
