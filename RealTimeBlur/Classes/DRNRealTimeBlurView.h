@@ -49,7 +49,10 @@ static const CGFloat kDNRRealTimeBlurTintColorAlpha = 0.1f;
  * IMPORTANT: Always set the view as static before animating this view (you
  * can always set it back to non-static by calling setRenderStatic:NO in the completion block) */
 @property (nonatomic, assign) BOOL renderStatic;
+@property (nonatomic, assign) CGFloat blurRadius;
 @property (nonatomic, strong) UIColor *tint;
 
+/* Refresh the view. Useful if renderStatic = YES */
+- (void)refresh;
 
 @end

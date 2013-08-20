@@ -50,6 +50,11 @@
 /* The background layer with the tint color */
 @property (nonatomic, strong) CALayer *tintLayer;
 
+/* flags to determine if properties were set in nib */
+@property (nonatomic, assign) BOOL didSetCornerRadius;
+@property (nonatomic, assign) BOOL didSetClipsToBounds;
+@property (nonatomic, assign) BOOL didSetBlurRadius;
+
 /* Private layer rendering method */
 - (void)renderLayerWithView:(UIView*)superview;
 
@@ -62,31 +67,39 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    if (self = [super initWithFrame:frame]) {
         [self setup];
     }
     return self;
 }
 
-- (void)awakeFromNib {
-    [self setup];
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self setup];
+    }
+    return self;
 }
 
-- (void)setup {
+- (void)setup
+{
     // Initialization code
     self.tintLayer = [[CALayer alloc] init];
     self.tintLayer.frame = self.bounds;
     self.tintLayer.opacity = kDNRRealTimeBlurTintColorAlpha;
     
-    //default tint
-    //TODO: Use tintColor on iOS 7
-    self.tint = [UIColor clearColor];
+    //default tint (use tintColor on iOS7)
+    if ([self respondsToSelector:@selector(tintColor)])
+        self.tint = [self valueForKey:@"tintColor"] ?: self.tint;
+    else
+        self.tint = [UIColor clearColor];
     
     [self.layer addSublayer:self.tintLayer];
     
-    self.clipsToBounds = YES;
-    self.layer.cornerRadius = kDRNRealTimeBlurViewDefaultCornerRadius;
+    //don't override values set in nib
+    if (!_didSetClipsToBounds) self.clipsToBounds = YES;
+    if (!_didSetCornerRadius) self.layer.cornerRadius = kDRNRealTimeBlurViewDefaultCornerRadius;
+    if (!_didSetBlurRadius) self.blurRadius = kDRNRealTimeBlurViewBlurRadius;
 }
 
 - (void)dealloc
@@ -110,13 +123,44 @@
         [[DRNRealTimeBlurViewManager sharedManager] registerView:self];
 }
 
-/* Set the tint color of the view. (default = [UIColor clearColor])
- * TODO: Use iOS7 tintColor */
+/* force the view to refresh */
+- (void)refresh
+{
+    [[DRNRealTimeBlurViewManager sharedManager] registerView:self];
+    if (_renderStatic)
+    {
+        [[DRNRealTimeBlurViewManager sharedManager] deregisterView:self];
+    }
+}
+
+/* Set the tint color of the view. (default = [UIColor clearColor]) */
 - (void)setTint:(UIColor*)tint
 {
     _tint = tint;
     self.tintLayer.backgroundColor = _tint.CGColor;
     [self.tintLayer setNeedsDisplay];
+}
+
+- (void)setBlurRadius:(CGFloat)blurRadius
+{
+    if (_blurRadius != blurRadius) {
+        _blurRadius = blurRadius;
+        [self refresh];
+    }
+}
+
+- (void)setClipsToBounds:(BOOL)clipsToBounds
+{
+    super.clipsToBounds = clipsToBounds;
+    _didSetClipsToBounds = YES;
+}
+
+- (void)setValue:(id)value forKeyPath:(NSString*)keyPath
+{
+    [super setValue:value forKeyPath:keyPath];
+    if ([keyPath isEqualToString:@"layer.cornerRadius"]) {
+        _didSetCornerRadius = YES;
+    }
 }
 
 #pragma mark - Rendering
@@ -138,8 +182,7 @@
         //if the view is not set as static registers the view to the manager
         if (!self.renderStatic)
             [[DRNRealTimeBlurViewManager sharedManager] registerView:self];
-   
-        
+           
     } else {
         //makes sure that the view is deregistered from the manager
         [[DRNRealTimeBlurViewManager sharedManager] deregisterView:self];
@@ -176,7 +219,7 @@
         //helps w/ our colors when blurring
         //feel free to adjust jpeg quality (lower = higher perf)
         NSData *imageData = UIImageJPEGRepresentation(image, kDRNRealTimeBlurViewScreenshotCompression);
-        image = [[UIImage imageWithData:imageData] drn_boxblurImageWithBlur:kDRNRealTimeBlurViewBlurRadius];
+        image = [[UIImage imageWithData:imageData] drn_boxblurImageWithBlur:_blurRadius];
     
         dispatch_sync(dispatch_get_main_queue(), ^{
             //update the layer content
