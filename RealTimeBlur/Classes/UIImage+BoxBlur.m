@@ -48,16 +48,16 @@
     outBuffer.rowBytes = CGImageGetBytesPerRow(img);
     
     // Create a third buffer for intermediate processing
-    void *pixelBuffer2 = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
+    /*void *pixelBuffer2 = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
     vImage_Buffer outBuffer2;
     outBuffer2.data = pixelBuffer2;
     outBuffer2.width = CGImageGetWidth(img);
     outBuffer2.height = CGImageGetHeight(img);
-    outBuffer2.rowBytes = CGImageGetBytesPerRow(img);
+    outBuffer2.rowBytes = CGImageGetBytesPerRow(img);*/
     
     //perform convolution
-    error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer2, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend)
-    ?: vImageBoxConvolve_ARGB8888(&outBuffer2, &inBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend)
+    error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend)
+    ?: vImageBoxConvolve_ARGB8888(&outBuffer, &inBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend)
     ?: vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
     
     if (error) {
@@ -80,7 +80,7 @@
     CGColorSpaceRelease(colorSpace);
     
     free(pixelBuffer);
-    free(pixelBuffer2);
+    //free(pixelBuffer2);
     
     CFRelease(inBitmapData);
     
