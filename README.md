@@ -11,6 +11,8 @@ Real-time blur view, like in iOS 7. (deployable on iOS5, 6 and 7)
 Usage
 --------------------
 
+• Make sure you link to the Accelerate.framework.
+
 Instantiate it and use it as any other view :) 
 
 	//Creates a live blur view
