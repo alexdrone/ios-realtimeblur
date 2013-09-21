@@ -202,10 +202,8 @@
     
     //Render the layer in the image context
     UIGraphicsBeginImageContextWithOptions(visibleRect.size, NO, 1.0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context, -visibleRect.origin.x, -visibleRect.origin.y);
     CALayer *layer = superview.layer;
-    [layer renderInContext:context];
+    [layer renderInContext:UIGraphicsGetCurrentContext()];
     
     //show all the blurred views from the superview before taking a screenshot
     [self toggleBlurViewsInView:superview hidden:NO alpha:alpha];
