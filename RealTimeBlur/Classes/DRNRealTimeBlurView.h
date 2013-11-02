@@ -52,6 +52,10 @@ static const CGFloat kDNRRealTimeBlurTintColorAlpha = 0.1f;
 @property (nonatomic, assign) CGFloat blurRadius;
 @property (nonatomic, strong) UIColor *tint;
 
+/* Easily allow another view to be wrapped in order to give it a Blured background */
+- (id)initWithView:(UIView *)theView;
+@property (strong, nonatomic) UIView *wrappedView;
+
 /* Refresh the view. Useful if renderStatic = YES */
 - (void)refresh;
 
