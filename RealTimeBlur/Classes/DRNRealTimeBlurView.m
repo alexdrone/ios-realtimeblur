@@ -201,7 +201,8 @@
     [self toggleBlurViewsInView:superview hidden:YES alpha:alpha];
     
     //Render the layer in the image context
-    //Render the layer in the image context
+    if (visibleRect.size.width == 0 || visibleRect.size.height == 0) return;
+    
     UIGraphicsBeginImageContextWithOptions(visibleRect.size, NO, 1.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, -visibleRect.origin.x, -visibleRect.origin.y);
