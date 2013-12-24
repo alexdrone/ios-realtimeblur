@@ -238,6 +238,36 @@
             subview.alpha = hidden ? 0.f : originalAlpha;
 }
 
+#pragma mark - Wrapped View
+
+- (id)initWithView:(UIView *)theView
+{
+    if( theView == nil )
+        return nil;
+    
+    self = [self initWithFrame:theView.frame];
+    if( self )
+    {
+        [self setWrappedView:theView];
+    }
+    
+    return self;
+}
+
+- (void)setWrappedView:(UIView *)wrappedView
+{
+    if( wrappedView != _wrappedView )
+        [_wrappedView removeFromSuperview];
+    
+    _wrappedView = wrappedView;
+    if( _wrappedView != nil )
+    {
+        _wrappedView.backgroundColor = [UIColor clearColor];
+        _wrappedView.bounds = CGRectMake(0, 0, wrappedView.frame.size.width, wrappedView.frame.size.width);
+        [self addSubview:_wrappedView];
+    }
+}
+
 @end
 
 
