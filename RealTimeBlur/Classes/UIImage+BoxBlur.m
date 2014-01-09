@@ -13,7 +13,7 @@
 @implementation UIImage (BoxBlur)
 
 /* blur the current image with a box blur algoritm */
-- (UIImage*)drn_boxblurImageWithBlur:(CGFloat)blur
+- (UIImage*)uie_boxblurImageWithBlur:(CGFloat)blur
 {
     if (blur < 0.f || blur > 1.f) {
         blur = 0.5f;

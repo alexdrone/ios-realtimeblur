@@ -13,6 +13,6 @@
 @interface UIImage (BoxBlur)
 
 /* blur the current image with a box blur algoritm */
-- (UIImage*)drn_boxblurImageWithBlur:(CGFloat)blur;
+- (UIImage*)uie_boxblurImageWithBlur:(CGFloat)blur;
 
 @end

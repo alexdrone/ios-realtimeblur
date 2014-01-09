@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ListViewController.h"
-#import "DRNRealTimeBlurView.h"
 
 @implementation AppDelegate
 

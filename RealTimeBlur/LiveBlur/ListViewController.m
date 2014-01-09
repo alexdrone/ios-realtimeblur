@@ -7,7 +7,7 @@
 //
 
 #import "ListViewController.h"
-#import "DRNRealTimeBlurView.h"
+#import "UIERealTimeBlurView.h"
 
 #define hll_color(r,g,b,a) [UIColor colorWithRed:(float)r/255.f green:(float)g/255.f blue:(float)b/255.f  alpha:a]
 
@@ -22,12 +22,10 @@
 @interface ListViewController () <UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) DRNRealTimeBlurView *blurView;
 
 @end
 
 @implementation ListViewController
-
 
 
 #pragma mark - TableViewDataSource
@@ -43,58 +41,20 @@
     UIImageView *speakerImage = [[UIImageView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
     speakerImage.image = [UIImage imageNamed:@"speaker"];
     speakerImage.alpha = 0.5f;
-
-    //Creates a live blur view
-    self.blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(60, 110, 200, 200)];
-    [self.view addSubview:self.blurView];
-
+    
+    UIERealTimeBlurView *blur = [[UIERealTimeBlurView alloc] initWithFrame:CGRectMake(60, 110, 200, 200)];
+    [self.view addSubview:blur];
+    
     //..and adds a subview
-    [self.blurView addSubview:speakerImage];
-
-    //shows and hides the blur view every 10secs
-    [self showHideLoop];
+    [blur addSubview:speakerImage];
     
     self.title = @"Alex Usbergo ~ Live Blur";
 }
-
-- (void)showHideLoop
-{    
-    self.blurView.alpha = 0.f;
-    
-    //show aniamtion
-    [UIView animateWithDuration:1 animations:^{
-        self.blurView.alpha = 1.f;
-    } completion:^(BOOL finished) {
-        
-        //After 10seconds it hides the view
-        double delayInSeconds = 10.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
-            //hide animation
-            [UIView animateWithDuration:1 animations:^{
-                self.blurView.alpha = 0.f;
-            } completion:^(BOOL finished) {
-                
-                //recursively call showHideLoop
-                double delayInSeconds = 2.0;
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    [self showHideLoop];
-                });
-            }];
-        });
-    }];
-    
-
-}
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 30;
 }
-
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
@@ -105,8 +65,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
-    cell.textLabel.text = @"Hwæt! wē Gār-Dena in ġeār-dagum";
-    cell.detailTextLabel.text = @"þēod-cyninga, þrym ġefrūnon";
+    cell.textLabel.text = @"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet";
+    cell.detailTextLabel.text = @"Lorem ipsum alexibus usbergique";
     
     
     UIColor *bkg = [UIColor hll_backgroundColorForIndex:indexPath.row];
@@ -114,7 +74,6 @@
     cell.detailTextLabel.textColor = bkg;
     return cell;
 }
-
 
 - (void)didReceiveMemoryWarning
 {

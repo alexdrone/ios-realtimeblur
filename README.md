@@ -16,7 +16,7 @@ Usage
 Instantiate it and use it as any other view :) 
 
 	//Creates a live blur view
-	DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(60, 110, 200, 200)];
+	UIERealTimeBlurView *blurView = [[UIERealTimeBlurView alloc] initWithFrame:CGRectMake(60, 110, 200, 200)];
 	[self.view addSubview:blurView];
 	
 
@@ -33,27 +33,9 @@ If you want to have a static rendering (useful if your view is presented modally
 
 You can set the tint color of the view via the tint property (still TODO: use iOS7 tintColor ;)) - The default one is clearColor
 
-In DRNRealTimeBlurView.h there are some constants that you can tweak to improve the smoothness/performances of the view or to define some default values.
+In UIERealTimeBlurView.h you can set the fps by tweaking the global var 
 
-
-	//the blur radius
-	static const CGFloat kDRNRealTimeBlurViewBlurRadius = 1.f;
-
-	//the default corner radius for all the DRNRealTimeBlurViews
-	static const CGFloat kDRNRealTimeBlurViewDefaultCornerRadius = 20.f;
-
-	//the view is rendered every kDRNRealTimeBlurViewRenderPeriod seconds
-	//tweak this value to have a smoother or a more perfomant rendering
-	static const CGFloat kDRNRealTimeBlurViewRenderFps = 30.f;
-
-	//the alpha component of the tint color
-	static const CGFloat kDNRRealTimeBlurTintColorAlpha = 0.1f;
-
-
-TODO
---------------------
-
-* Improve it ;)
+	extern const CGFloat UIERealTimeBlurViewFPS = 30.f;
 
 
 Credits

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162E7AE0187F09E000CDD6D3 /* UIERealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E7ADF187F09E000CDD6D3 /* UIERealTimeBlurView.m */; };
 		16538AC6178437DE006ADE2F /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 16538AC4178437DE006ADE2F /* speaker.png */; };
 		16538AC7178437DE006ADE2F /* speaker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16538AC5178437DE006ADE2F /* speaker@2x.png */; };
 		16C11112178436B50044C459 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C11111178436B50044C459 /* UIKit.framework */; };
@@ -18,7 +19,6 @@
 		16C11124178436B50044C459 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 16C11123178436B50044C459 /* Default.png */; };
 		16C11126178436B50044C459 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16C11125178436B50044C459 /* Default@2x.png */; };
 		16C11128178436B50044C459 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16C11127178436B50044C459 /* Default-568h@2x.png */; };
-		16C11135178436E70044C459 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C11132178436E70044C459 /* DRNRealTimeBlurView.m */; };
 		16C11136178436E70044C459 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C11134178436E70044C459 /* UIImage+BoxBlur.m */; };
 		16C11138178437110044C459 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C11137178437110044C459 /* QuartzCore.framework */; };
 		16C1113A178437150044C459 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C11139178437150044C459 /* Accelerate.framework */; };
@@ -26,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		162E7ADE187F09E000CDD6D3 /* UIERealTimeBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIERealTimeBlurView.h; sourceTree = "<group>"; };
+		162E7ADF187F09E000CDD6D3 /* UIERealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIERealTimeBlurView.m; sourceTree = "<group>"; };
 		16538AC4178437DE006ADE2F /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 		16538AC5178437DE006ADE2F /* speaker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speaker@2x.png"; sourceTree = "<group>"; };
 		16C1110E178436B50044C459 /* LiveBlur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveBlur.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,8 +45,6 @@
 		16C11127178436B50044C459 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		16C1112E178436C00044C459 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		16C1112F178436C00044C459 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		16C11131178436E70044C459 /* DRNRealTimeBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRNRealTimeBlurView.h; sourceTree = "<group>"; };
-		16C11132178436E70044C459 /* DRNRealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRNRealTimeBlurView.m; sourceTree = "<group>"; };
 		16C11133178436E70044C459 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
 		16C11134178436E70044C459 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
 		16C11137178437110044C459 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -136,10 +136,10 @@
 		16C11130178436E70044C459 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				16C11131178436E70044C459 /* DRNRealTimeBlurView.h */,
-				16C11132178436E70044C459 /* DRNRealTimeBlurView.m */,
 				16C11133178436E70044C459 /* UIImage+BoxBlur.h */,
 				16C11134178436E70044C459 /* UIImage+BoxBlur.m */,
+				162E7ADE187F09E000CDD6D3 /* UIERealTimeBlurView.h */,
+				162E7ADF187F09E000CDD6D3 /* UIERealTimeBlurView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 			files = (
 				16C1111E178436B50044C459 /* main.m in Sources */,
 				16C11122178436B50044C459 /* AppDelegate.m in Sources */,
-				16C11135178436E70044C459 /* DRNRealTimeBlurView.m in Sources */,
+				162E7AE0187F09E000CDD6D3 /* UIERealTimeBlurView.m in Sources */,
 				16C11136178436E70044C459 /* UIImage+BoxBlur.m in Sources */,
 				16C1113B178437230044C459 /* ListViewController.m in Sources */,
 			);
